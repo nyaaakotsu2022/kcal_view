@@ -1,17 +1,18 @@
 import streamlit as st
 from PIL import Image
+import sys
+#sys.path.append("help")
+#sys.path.append("result")
 import help
 import result
 
 # 定数
-CALORIE = {"オムライス" : 850, "カレーライス" : 859, "タラコパスタ": 742}
 MENU = ["メイン", "使い方"]
 TYPECHECK = ["image/jpeg", "image/png", "image/heic"]
 
-def upload() -> None: return st.file_uploader("画像を選択してください。")   #, type='jpg'
+def upload() -> None: return st.file_uploader("画像を選択してください。")
 
 def app_display(foodpicture) -> None: st.image(foodpicture, use_column_width=True)
-# def changeto_jpg(foodpicture): pass
 
 # 正しい画像ファイルかの確認
 def EXTENSIONCHECK(extension):
@@ -33,8 +34,6 @@ def main() -> None:
         # 画像がアップロードされたら元画像を出力。
         if foodpicture is not None:
             if EXTENSIONCHECK(str(foodpicture)):
-                #foodpicture = Image.open(foodpicture)
-                #app_display(foodpicture)
                 foodpicture2 = Image.open(foodpicture)
                 app_display(foodpicture2)
             else:
@@ -47,5 +46,6 @@ def main() -> None:
                     result.check_photo_str(foodpicture, number)
             except AttributeError:
                 st.error('画像をアップロードしてください。', icon="🚨")
-
+        
+        st.title("テスト")
 if __name__ == '__main__': main()
