@@ -7,10 +7,8 @@ def nutrients(foodname):
     ans = []
 
     tmp = list(cur.execute("SELECT protein, lipid, carbohydrate, sugar, dietaryfiber FROM nutrients WHERE dish_name = '{}'".format(foodname)))
-    print("実行されました。", tmp)
     for i in range(len(tmp[0])): ans.append(tmp[0][i])
     ans = np.array(list(map(lambda x: math.ceil(x), ans)))
-    cur.close()
     conn.close()
     
     return ans
