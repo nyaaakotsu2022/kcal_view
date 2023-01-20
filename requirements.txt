@@ -4,3 +4,4 @@ pandas
 matplotlib.pyplot
 Keras
 Pillow
+sqlite3
