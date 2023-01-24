@@ -43,7 +43,7 @@ in_shape = (im_rows, im_cols, im_color)
 nb_classes = 8
 
 model = get_model(in_shape, nb_classes)
-model.load_weights('model\Italian\itarian_photos-model.hdf5')
+model.load_weights('itarian_photos-model.hdf5')
 
 
 def check_photo(path):
