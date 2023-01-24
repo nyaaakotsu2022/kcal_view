@@ -11,7 +11,7 @@ from keras.optimizers import RMSprop
 LABELS = ["アヒージョ", "ハンバーガー", "カルボナーラ", "ナポリタンスパゲッティ", "ペペロンチーノ", "ピザ", "ローストビーフ", "サンドイッチ"]
 CALORIES = [329, 446, 779, 590, 505, 872, 78, 314]
 VALUE = {"1人前": 1, "2人前": 2, "3人前": 3, "4人前": 4}
-bASEDIR = os.path.dirname(os.path.abspath(__file__))
+BASEDIR = os.path.dirname(os.path.abspath(__file__))
 
 def def_model(in_shape, nb_classes):
     model = Sequential()
@@ -44,7 +44,7 @@ in_shape = (im_rows, im_cols, im_color)
 nb_classes = 8
 
 model = get_model(in_shape, nb_classes)
-model.load_weights(bASEDIR + '/itarian_photos-model.hdf5')
+model.load_weights(BASEDIR + '/itarian_photos-model.hdf5')
 
 
 def check_photo(path):
